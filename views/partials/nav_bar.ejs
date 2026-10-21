@@ -1,0 +1,44 @@
+
+  <nav>
+    <h1>🛒 MyShop</h1>
+    <ul>
+      <li><a href="/products">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <% if (currentUser && currentUser.role == 'seller') { %>
+      <li><a href="/product/new">Add Product</a></li>
+    <% } %>
+      
+    </ul>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <ul>
+      <% if (!currentUser) { %>
+      <li><a href="/login">LogIn</a></li>
+    <% } else { %>
+
+      <!-- <div> -->
+        <a href="#" class="nav-link mx-2">Hello, <%=currentUser.username%></a>
+        <a href="" class="nav-link mx-2">
+          <i class="fa-solid fa-cart-plus"></i>
+          <sup><span class="badge bg-danger">2</span></sup>
+        </a>
+        <li><a href="/logout">LogOut</a></li>
+      <!-- </div> -->
+    <% } %>
+
+    </ul>
+  </nav>
+
+
+  <!-- <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav> -->
+

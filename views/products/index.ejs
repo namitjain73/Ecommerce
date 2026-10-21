@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/nav_bar') %>
+
+
+   <%- include('../partials/flash') %>
+
+  <div class="container">
+    <% for(let item of products){ %>
+      <div class="card">
+        <img src="<%= item.img %>" alt="<%= item.name %>">
+        <div class="card-body">
+          <h3><%= item.name %></h3>
+          <h5>₹<%= item.price.toLocaleString() %></h5>
+          <p><%= item.desc %></p>
+          <a href="/products/<%= item._id %>" class="button-link">View</a>
+          <% if (currentUser && currentUser.role == 'seller') { %>
+            <form class="inline-blocks" action="/products/<%=item._id%>?_method=DELETE" method="POST">
+              <button class="button-link" >Delete</button>
+            </form>
+          <% } %>
+          
+        </div>
+      </div>
+    <% } %>
+  </div>
+
+</body>
+</html>

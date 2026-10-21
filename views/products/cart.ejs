@@ -1,0 +1,14 @@
+<% layout('layouts/boilerplate') %>
+
+
+<div class="alert alert-danger" role="alert" >
+
+    <ul>
+        <%for(let user of user.cart){%>
+            <li><%=item.name%> --> <%=item.price%></li>
+        <%}%>
+    </ul>
+
+</div>
+    </body>
+</html>
